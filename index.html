@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8" />
+    <title>GFORMANCE | Coming Soon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="GFORMANCE - Golden Performance Quant System Trading" />
+
+    <style>
+        :root {
+            --bg-navy: #050b18;
+            --gold-light: #ffeec8;
+            --gold-strong: #f6c852;
+            --red-strong: #ff2a2a;
+            --text-muted: #9ca4c1;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at top left, #121a33 0%, var(--bg-navy) 55%, #02040a 100%);
+            color: white;
+            font-family: -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 960px;
+            padding: 32px 24px 40px;
+        }
+
+        .card {
+            border-radius: 28px;
+            background: rgba(3, 7, 20, 0.92);
+            box-shadow:
+                    0 22px 60px rgba(0, 0, 0, 0.75),
+                    0 0 0 1px rgba(255, 255, 255, 0.02);
+            padding: 36px 24px 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            backdrop-filter: blur(18px);
+        }
+
+        .logo-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 30px;
+        }
+
+        .logo-image {
+            width: 164px;
+            max-width: 40vw;
+            height: auto;
+        }
+
+        .wordmark {
+            font-size: 1.9rem;
+            font-weight: 800;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, var(--gold-light), var(--gold-strong), var(--red-strong));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.78rem;
+            padding: 4px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--gold-strong);
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #43ff72, #00c853);
+            box-shadow: 0 0 10px #00c853;
+        }
+
+        h1 {
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            margin-bottom: 10px;
+        }
+
+        h1 span {
+            font-weight: 300;
+            color: var(--text-muted);
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 26px;
+            line-height: 1.6;
+
+        }
+
+        .subtitle strong {
+            color: #e4e8ff;
+            font-weight: 600;
+        }
+
+        .divider {
+            width: 80px;
+            height: 1px;
+            margin: 0 auto 50px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
+
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            width: 100%;
+            margin-bottom: 22px;
+        }
+
+        .info-item {
+            padding: 12px 14px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.0));
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: left;
+        }
+
+        .info-label {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+
+        .info-value {
+            font-size: 0.9rem;
+            color: #f4f6ff;
+        }
+
+        .info-value span {
+            color: var(--gold-strong);
+            font-weight: 600;
+        }
+
+        .notify {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .notify a {
+            color: var(--gold-strong);
+            text-decoration: none;
+        }
+
+        .notify a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            margin-top: 26px;
+            font-size: 0.72rem;
+            color: #5e6686;
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                padding: 44px 48px 40px;
+            }
+            .logo-image {
+                width: 190px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <main class="card">
+        <div class="logo-wrap">
+            <!-- 로고 파일 이름을 실제 저장한 이름으로 교체하세요 -->
+            <img src="images/gf_sym_128.png" alt="GFORMANCE logo" class="logo-image" />
+            <div class="wordmark">GFORMANCE</div>
+        </div>
+
+        <h1>
+            Golden Performance,
+            <span>Driven by Quant.</span>
+        </h1>
+
+        <p class="subtitle">
+            지포먼스는 <strong>퀀트 시스템 트레이딩</strong>과
+            <strong>데이터 기반 리스크 관리</strong>를 통해<br />
+            안정적인 수익 곡선을 추구하는 인베스트먼트 브랜드입니다.
+        </p>
+
+
+        <div class="divider"></div>
+
+        <section class="info-grid">
+            <div class="info-item">
+                <div class="info-label">Launch</div>
+                <div class="info-value">Official service Coming Soon</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">Focus</div>
+                <div class="info-value">Invest · Quant · Risk Management</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">HQ</div>
+                <div class="info-value">Run:on · Digital HQ</div>
+            </div>
+        </section>
+
+        <p class="notify">
+            <div class="info-value"> <span>Coming Soon</span> </div>
+        </p>
+
+        <footer>
+            © <span id="year"></span> GFORMANCE · Run:on. All rights reserved.  Email: info@runon.io
+
+        </footer>
+    </main>
+</div>
+
+<script>
+    // 연도 자동 갱신
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
