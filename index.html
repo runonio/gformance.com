@@ -1,253 +1,894 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8" />
-    <title>GFORMANCE | Coming Soon</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="GFORMANCE - Golden Performance Quant System Trading" />
-    <link rel="icon" href="images/gf_sym_128.png" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GFORMANCE | Local-first Quant Research Platform</title>
+
+    <meta name="description"
+          content="GFORMANCE — 개인의 PC를 퀀트 연구소로 만드는 Local-first Quant Research & Operation Platform.">
+
+    <link rel="icon" type="image/png" href="/images/gf_sym_128.png">
 
     <style>
-        :root {
-            --bg-navy: #050b18;
-            --gold-light: #ffeec8;
-            --gold-strong: #f6c852;
-            --red-strong: #ff2a2a;
-            --text-muted: #9ca4c1;
-        }
-
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            min-height: 100vh;
-            background: radial-gradient(circle at top left, #121a33 0%, var(--bg-navy) 55%, #02040a 100%);
-            color: white;
-            font-family: -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin: 0;
+            background: #050608;
+            color: #f4f4f4;
+            font-family:
+                    Inter,
+                    Pretendard,
+                    -apple-system,
+                    BlinkMacSystemFont,
+                    "Segoe UI",
+                    sans-serif;
         }
 
-        .page {
-            width: 100%;
-            max-width: 960px;
-            padding: 32px 24px 40px;
-        }
-
-        .card {
-            border-radius: 28px;
-            background: rgba(3, 7, 20, 0.92);
-            box-shadow:
-                    0 22px 60px rgba(0, 0, 0, 0.75),
-                    0 0 0 1px rgba(255, 255, 255, 0.02);
-            padding: 36px 24px 32px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            backdrop-filter: blur(18px);
-        }
-
-        .logo-wrap {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 14px;
-            margin-bottom: 30px;
-        }
-
-        .logo-image {
-            width: 164px;
-            max-width: 40vw;
-            height: auto;
-        }
-
-        .wordmark {
-            font-size: 1.9rem;
-            font-weight: 800;
-            letter-spacing: 0.16em;
-            text-transform: uppercase;
-            background: linear-gradient(90deg, var(--gold-light), var(--gold-strong), var(--red-strong));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            margin-bottom: 20px;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 0.78rem;
-            padding: 4px 10px;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.04);
-            color: var(--gold-strong);
-            margin-bottom: 14px;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-        }
-
-        .badge-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #43ff72, #00c853);
-            box-shadow: 0 0 10px #00c853;
-        }
-
-        h1 {
-            font-size: clamp(1.8rem, 4vw, 2.4rem);
-            margin-bottom: 10px;
-        }
-
-        h1 span {
-            font-weight: 300;
-            color: var(--text-muted);
-        }
-
-        .subtitle {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-bottom: 26px;
-            line-height: 1.6;
-
-        }
-
-        .subtitle strong {
-            color: #e4e8ff;
-            font-weight: 600;
-        }
-
-        .divider {
-            width: 80px;
-            height: 1px;
-            margin: 0 auto 50px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.55), transparent);
-
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 18px;
-            width: 100%;
-            margin-bottom: 22px;
-        }
-
-        .info-item {
-            padding: 12px 14px;
-            border-radius: 16px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.0));
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            text-align: left;
-        }
-
-        .info-label {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--text-muted);
-            margin-bottom: 4px;
-        }
-
-        .info-value {
-            font-size: 0.9rem;
-            color: #f4f6ff;
-        }
-
-        .info-value span {
-            color: var(--gold-strong);
-            font-weight: 600;
-        }
-
-        .notify {
-            margin-top: 8px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .notify a {
-            color: var(--gold-strong);
+        a {
+            color: inherit;
             text-decoration: none;
         }
 
-        .notify a:hover {
-            text-decoration: underline;
+        .container {
+            width: min(1180px, calc(100% - 48px));
+            margin: 0 auto;
         }
+
+        /* =========================
+           HEADER
+           ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+
+            background: rgba(5, 6, 8, 0.78);
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .nav {
+            height: 72px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+
+        .brand img {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+
+            font-size: 14px;
+            color: #a7abb3;
+        }
+
+        .nav-right a:hover {
+            color: #fff;
+        }
+
+        .login {
+            padding: 9px 17px;
+
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 8px;
+
+            color: #fff;
+        }
+
+        /* =========================
+           HERO
+           ========================= */
+
+        .hero {
+            min-height: 900px;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+            overflow: hidden;
+
+            padding-top: 72px;
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+            width: 700px;
+            height: 700px;
+
+            left: 50%;
+            top: 42%;
+
+            transform: translate(-50%, -50%);
+
+            background:
+                    radial-gradient(
+                            circle,
+                            rgba(255, 190, 70, 0.09),
+                            transparent 68%
+                    );
+
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+
+            max-width: 900px;
+        }
+
+        .eyebrow {
+            color: #b5bac4;
+
+            font-size: 14px;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            margin: 0;
+
+            font-size: clamp(54px, 8vw, 104px);
+            line-height: 0.94;
+
+            letter-spacing: -0.065em;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            display: block;
+            color: #8d929c;
+        }
+
+        .hero-description {
+            max-width: 670px;
+
+            margin-top: 36px;
+
+            font-size: 20px;
+            line-height: 1.75;
+
+            color: #b4b8c0;
+        }
+
+        .hero-description strong {
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+
+            margin-top: 40px;
+        }
+
+        .button {
+            padding: 14px 22px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .button-primary {
+            background: #f1f1f1;
+            color: #090a0c;
+        }
+
+        .button-secondary {
+            border: 1px solid rgba(255,255,255,0.16);
+            color: #d5d8de;
+        }
+
+        /* =========================
+           FLOW
+           ========================= */
+
+        .flow {
+            margin-top: 100px;
+
+            display: grid;
+            grid-template-columns:
+                1fr
+                60px
+                1fr
+                60px
+                1fr;
+            align-items: center;
+        }
+
+        .flow-item {
+            padding: 24px;
+
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.025);
+
+            border-radius: 12px;
+        }
+
+        .flow-item small {
+            display: block;
+
+            color: #777d87;
+            font-size: 11px;
+            letter-spacing: 0.15em;
+            margin-bottom: 9px;
+        }
+
+        .flow-item strong {
+            font-size: 20px;
+        }
+
+        .flow-arrow {
+            text-align: center;
+            color: #555b65;
+            font-size: 24px;
+        }
+
+        /* =========================
+           SECTIONS
+           ========================= */
+
+        section {
+            padding: 150px 0;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .section-label {
+            color: #777d87;
+
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+
+            margin-bottom: 20px;
+        }
+
+        section h2 {
+            margin: 0;
+
+            font-size: clamp(38px, 5vw, 68px);
+            letter-spacing: -0.05em;
+            line-height: 1;
+        }
+
+        .section-description {
+            max-width: 650px;
+
+            margin-top: 28px;
+
+            color: #9fa4ad;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           THREE AREAS
+           ========================= */
+
+        .areas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-top: 70px;
+        }
+
+        .area {
+            min-height: 300px;
+
+            padding: 34px;
+
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+
+            background:
+                    linear-gradient(
+                            145deg,
+                            rgba(255,255,255,0.045),
+                            rgba(255,255,255,0.012)
+                    );
+        }
+
+        .area-number {
+            color: #626873;
+            font-size: 12px;
+        }
+
+        .area h3 {
+            margin-top: 70px;
+
+            font-size: 28px;
+            letter-spacing: -0.03em;
+        }
+
+        .area p {
+            color: #9297a0;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           RESEARCH FLOW
+           ========================= */
+
+        .research-flow {
+            margin-top: 70px;
+
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+
+            gap: 12px;
+        }
+
+        .research-step {
+            padding: 15px 20px;
+
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+
+            color: #d6d9df;
+        }
+
+        .research-arrow {
+            color: #555b65;
+        }
+
+        /* =========================
+           PRIVATE
+           ========================= */
+
+        .private {
+            text-align: center;
+        }
+
+        .private .section-description {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .private-list {
+            margin: 60px auto 0;
+
+            max-width: 800px;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 12px;
+
+            text-align: left;
+        }
+
+        .private-list div {
+            padding: 20px;
+
+            border: 1px solid rgba(255,255,255,0.07);
+            border-radius: 9px;
+
+            color: #aeb2ba;
+        }
+
+        /* =========================
+           FINAL CTA
+           ========================= */
+
+        .cta {
+            text-align: center;
+
+            padding: 180px 0;
+        }
+
+        .cta h2 {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta p {
+            margin-top: 30px;
+
+            color: #9297a0;
+            font-size: 18px;
+        }
+
+        /* =========================
+           FOOTER
+           ========================= */
 
         footer {
-            margin-top: 26px;
-            font-size: 0.72rem;
-            color: #5e6686;
+            padding: 35px 0;
+
+            border-top: 1px solid rgba(255,255,255,0.06);
+
+            color: #666b74;
+            font-size: 12px;
         }
 
-        @media (min-width: 768px) {
-            .card {
-                padding: 44px 48px 40px;
+        footer .footer-inner {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* =========================
+           MOBILE
+           ========================= */
+
+        @media (max-width: 760px) {
+
+            .container {
+                width: min(100% - 32px, 1180px);
             }
-            .logo-image {
-                width: 190px;
+
+            .nav-right a:not(.login) {
+                display: none;
+            }
+
+            .hero {
+                min-height: 800px;
+            }
+
+            .hero h1 {
+                font-size: 58px;
+            }
+
+            .hero-description {
+                font-size: 17px;
+            }
+
+            .flow {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .flow-arrow {
+                transform: rotate(90deg);
+            }
+
+            .areas {
+                grid-template-columns: 1fr;
+            }
+
+            .private-list {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 100px 0;
+            }
+
+            .research-flow {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .research-arrow {
+                transform: rotate(90deg);
+            }
+
+            footer .footer-inner {
+                flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
 </head>
+
 <body>
-<div class="page">
-    <main class="card">
-        <div class="logo-wrap">
-            <!-- 로고 파일 이름을 실제 저장한 이름으로 교체하세요 -->
-            <img src="images/gf_sym_128.png" alt="GFORMANCE logo" class="logo-image" />
-            <div class="wordmark">GFORMANCE</div>
+
+<header>
+    <div class="container nav">
+
+        <a href="/" class="brand">
+            <img src="/images/gf_sym_128.png" alt="GFORMANCE">
+            <span>GFORMANCE</span>
+        </a>
+
+        <nav class="nav-right">
+            <a href="#product">Product</a>
+            <a href="#research">Research</a>
+            <a href="#private">Private</a>
+            <a href="/login" class="login">Login</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <div class="eyebrow">
+                    Golden Performance, Driven by Quant.
+                </div>
+
+                <h1>
+                    YOUR PC
+                    <span>IS YOUR</span>
+                    QUANT LAB.
+                </h1>
+
+                <p class="hero-description">
+                    개인의 PC를 퀀트 연구소로 만드는
+                    <strong>Local-first Quant Research & Operation Platform.</strong>
+                    대규모 시장 데이터를 직접 분석하고,
+                    연구 결과를 Rule로 만들어 실제 운용까지 연결합니다.
+                </p>
+
+                <div class="buttons">
+                    <a href="/login" class="button button-primary">
+                        Get Started
+                    </a>
+
+                    <a href="#product" class="button button-secondary">
+                        Explore Platform
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="flow">
+
+                <div class="flow-item">
+                    <small>01</small>
+                    <strong>DATA</strong>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-item">
+                    <small>02</small>
+                    <strong>RESEARCH</strong>
+                </div>
+
+                <div class="flow-arrow">→</div>
+
+                <div class="flow-item">
+                    <small>03</small>
+                    <strong>OPERATION</strong>
+                </div>
+
+            </div>
+
         </div>
 
-        <h1>
-            Golden Performance,
-            <span>Driven by Quant.</span>
-        </h1>
-
-        <p class="subtitle">
-            지포먼스는 <strong>퀀트 시스템 트레이딩</strong>과
-            <strong>데이터 기반 리스크 관리</strong>를 통해<br />
-            안정적인 수익 곡선을 추구하는 인베스트먼트 브랜드입니다.
-        </p>
+    </section>
 
 
-        <div class="divider"></div>
+    <!-- LOCAL FIRST -->
 
-        <section class="info-grid">
-            <div class="info-item">
-                <div class="info-label">Launch</div>
-                <div class="info-value">Official service Coming Soon</div>
+    <section id="product">
+
+        <div class="container">
+
+            <div class="section-label">
+                Local First
             </div>
-            <div class="info-item">
-                <div class="info-label">Focus</div>
-                <div class="info-value">Invest · Quant · Risk Management</div>
+
+            <h2>
+                Large Data.<br>
+                Expensive Compute.<br>
+                Your PC.
+            </h2>
+
+            <p class="section-description">
+                대규모 시장 데이터를 사용자 PC에 저장하고,
+                고비용의 분석을 로컬에서 수행합니다.
+                API 호출량이나 중앙 서버의 연산 자원에 맞춰 분석 규모를 제한하기보다
+                사용자의 CPU, RAM, Storage를 활용하여
+                수천 종목을 한 번에 비교하고 대규모 백테스트와 통계 분석을 반복할 수 있습니다.
+            </p>
+
+
+            <div class="areas">
+
+                <div class="area">
+
+                    <div class="area-number">01</div>
+
+                    <h3>DATA</h3>
+
+                    <p>
+                        시장 데이터와 시장 지표를 관리하고
+                        필요한 사용자 정의 데이터를 함께 분석합니다.
+                    </p>
+
+                </div>
+
+
+                <div class="area">
+
+                    <div class="area-number">02</div>
+
+                    <h3>RESEARCH</h3>
+
+                    <p>
+                        종목 탐색, 통계 분석, 백테스트,
+                        머신러닝과 AI를 이용한 전략 연구를 수행합니다.
+                    </p>
+
+                </div>
+
+
+                <div class="area">
+
+                    <div class="area-number">03</div>
+
+                    <h3>OPERATION</h3>
+
+                    <p>
+                        연구를 통해 만들어진 Rule을 실제 운용에 적용하고
+                        주문, 리스크 관리, 리밸런싱을 수행합니다.
+                    </p>
+
+                </div>
+
             </div>
-            <div class="info-item">
-                <div class="info-label">HQ</div>
-                <div class="info-value">Run:on · Digital HQ</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESEARCH -->
+
+    <section id="research">
+
+        <div class="container">
+
+            <div class="section-label">
+                Research First
             </div>
-        </section>
 
-        <p class="notify">
-            <div class="info-value"> <span>Coming Soon</span> </div>
-        </p>
+            <h2>
+                Research<br>
+                before Operation.
+            </h2>
 
-        <footer>
-            © <span id="year"></span> GFORMANCE · Run:on. All rights reserved.  Email: info@runon.io
+            <p class="section-description">
+                퀀트 투자는 한 번 만든 전략으로 끝나지 않습니다.
+                시장을 관찰하고 가설을 만들고 데이터를 통해 검증하며,
+                변화한 시장에 맞춰 다시 연구합니다.
+            </p>
 
-        </footer>
-    </main>
-</div>
 
-<script>
-    // 연도 자동 갱신
-    document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+            <div class="research-flow">
+
+                <div class="research-step">
+                    Market Data
+                </div>
+
+                <div class="research-arrow">→</div>
+
+                <div class="research-step">
+                    Hypothesis
+                </div>
+
+                <div class="research-arrow">→</div>
+
+                <div class="research-step">
+                    Statistics
+                </div>
+
+                <div class="research-arrow">→</div>
+
+                <div class="research-step">
+                    Backtest
+                </div>
+
+                <div class="research-arrow">→</div>
+
+                <div class="research-step">
+                    ML / AI
+                </div>
+
+                <div class="research-arrow">→</div>
+
+                <div class="research-step">
+                    Rule
+                </div>
+
+                <div class="research-arrow">→</div>
+
+                <div class="research-step">
+                    Operation
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RULE -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-label">
+                Rule
+            </div>
+
+            <h2>
+                Research becomes<br>
+                a Rule.
+            </h2>
+
+            <p class="section-description">
+                GFORMANCE는 전략 자체보다
+                연구와 운용을 연결하는 Rule을 핵심 객체로 정의합니다.
+                연구 결과를 실제 운용으로 연결하고,
+                운용 결과와 시장 변화를 다시 연구로 가져옵니다.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRIVATE -->
+
+    <section id="private" class="private">
+
+        <div class="container">
+
+            <div class="section-label">
+                Private by Design
+            </div>
+
+            <h2>
+                Your research.<br>
+                Your rules.
+            </h2>
+
+            <p class="section-description">
+                **Your Rules Stay Yours.**
+                고객이 생성한 Rule과 투자 전략은 서버에 기본적으로 저장하지 않습니다.
+                연구와 전략의 소유권을 사용자 환경에 두는 것을 기본 원칙으로 합니다.
+            </p>
+
+
+            <div class="private-list">
+
+                <div>
+                    Your Rules Stay Yours.
+                </div>
+
+                <div>
+                    고객이 생성한 Rule은 서버에 기본 저장하지 않습니다.
+                </div>
+
+                <div>
+                    백업은 사용자가 선택한 경우에만 수행합니다.
+                </div>
+
+                <div>
+                    백업 시 전략 데이터는 암호화하여 저장합니다.
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- AI -->
+
+    <section>
+
+        <div class="container">
+
+            <div class="section-label">
+                AI / MCP
+            </div>
+
+            <h2>
+                AI works<br>
+                with your data.
+            </h2>
+
+            <p class="section-description">
+                AI는 단순히 전략을 자동으로 만들어내는 도구가 아닙니다.
+                MCP와 Local Quant Engine을 통해 사용자의 데이터와
+                분석 환경을 활용하여 대규모 연구를 수행하는 인터페이스가 됩니다.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta">
+
+        <div class="container">
+
+            <h2>
+                Build. Research.<br>
+                Test. Operate.
+            </h2>
+
+            <p>
+                Your quantitative research environment starts here.
+            </p>
+
+            <div class="buttons" style="justify-content:center;">
+                <a href="/login" class="button button-primary">
+                    Login
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+
+    <div class="container footer-inner">
+
+        <div>
+            © GFORMANCE · Run:on. All rights reserved.
+        </div>
+
+        <div>
+            Golden Performance, Driven by Quant.
+        </div>
+
+    </div>
+
+</footer>
+
 </body>
 </html>
