@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -54,8 +55,8 @@
             right: 0;
             z-index: 100;
 
-            background: rgba(5, 6, 8, 0.78);
-            backdrop-filter: blur(14px);
+            background: #050608;
+            backdrop-filter: none;
 
             border-bottom: 1px solid rgba(255,255,255,0.06);
         }
@@ -71,15 +72,19 @@
         .brand {
             display: flex;
             align-items: center;
-            gap: 12px;
-
-            font-weight: 700;
-            letter-spacing: 0.04em;
         }
 
-        .brand img {
+        .brand-symbol {
             width: 34px;
             height: 34px;
+            object-fit: contain;
+            flex: 0 0 auto;
+        }
+
+        .brand-wordmark {
+            width: 130px;
+            height: auto;
+            display: block;
             object-fit: contain;
         }
 
@@ -119,28 +124,6 @@
             overflow: hidden;
 
             padding-top: 72px;
-        }
-
-        .hero::before {
-            content: "";
-
-            position: absolute;
-            width: 700px;
-            height: 700px;
-
-            left: 50%;
-            top: 42%;
-
-            transform: translate(-50%, -50%);
-
-            background:
-                    radial-gradient(
-                            circle,
-                            rgba(255, 190, 70, 0.09),
-                            transparent 68%
-                    );
-
-            pointer-events: none;
         }
 
         .hero-content {
@@ -320,12 +303,7 @@
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 14px;
 
-            background:
-                    linear-gradient(
-                            145deg,
-                            rgba(255,255,255,0.045),
-                            rgba(255,255,255,0.012)
-                    );
+            background: rgba(255,255,255,0.025);
         }
 
         .area-number {
@@ -517,8 +495,8 @@
     <div class="container nav">
 
         <a href="/" class="brand">
-            <img src="/images/gf_sym_128.png" alt="GFORMANCE">
-            <span>GFORMANCE</span>
+            <img class="brand-symbol" src="/images/gf_sym_128.png" alt="">
+            <img class="brand-wordmark" src="/images/img.png" alt="GFORMANCE">
         </a>
 
         <nav class="nav-right">
